@@ -1,5 +1,7 @@
 import webapp2
 import os
+import cgi
+import json
 from api import LocalbitcoinsAPI
 
 api = LocalbitcoinsAPI()
@@ -20,9 +22,14 @@ class Balance(webapp2.RequestHandler):
 class Send(webapp2.RequestHandler):
 	def post(self):
 		self.response.headers['Content-Type'] = 'text/plain'
-		
-		response = api.make_request('POST', '/api/wallet-send/')
-		self.response.write(response.data['data']['total']['balance'])
+		# param = {'address': '1PTR6PRJ2hrUG2hx6auG11V7NYmkjMuEy5', 'amount': 0.01 }
+		jdata = json.loads(cgi.escape(self.request.body))
+		print(jdata)
+		# print(param)
+		# print(data[1])
+		response = api.make_request('POST', '/api/wallet-send/', jdata)
+		print(response)
+		self.response.write(response)
 
 app = webapp2.WSGIApplication([
 	('/self', Self),

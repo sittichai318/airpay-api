@@ -5,4 +5,4 @@ threadsafe: true
 
 handlers:
 - url: /.*
-  script: airpay-py.app
+  script: airpay-api.app

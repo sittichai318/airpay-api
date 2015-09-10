@@ -3,15 +3,15 @@ import hmac
 import hashlib
 from urllib import urlencode
 
-LOCALBITCOINS_API_KEY = 'ff00a0f330c6714637d43d245dea8ebf'
-LOCALBITCOINS_API_SECRET = '8e8f9cdcbb85165860a72a94baa24e29e391bb0d7149b6e0879729ea3aef4506'
+LOCALBITCOINS_API_KEY = ''
+LOCALBITCOINS_API_SECRET = ''
 
 import drest
 
 class LocalbitcoinsRequestHandler(drest.request.RequestHandler):
     class Meta:
-        api_key = 'ff00a0f330c6714637d43d245dea8ebf'
-        api_secret = '8e8f9cdcbb85165860a72a94baa24e29e391bb0d7149b6e0879729ea3aef4506'
+        api_key = ''
+        api_secret = ''
         api_application_name = 'airpay'
     
     def make_request_with_relative_path(self, method, relative_path, url, params=None, headers=None):
